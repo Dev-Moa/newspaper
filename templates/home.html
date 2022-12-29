@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block content %}
+    {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+       <a href="{% url 'logout'  %}">logout</a>
+       <a href="{% url 'articles'  %}">articles</a>
+    {% else %}
+    <p>You are not <a href="{% url 'login'  %}"> logged in</a></p>  
+    <p>Or if new create New <a href="{% url 'signup'  %}">account here</a></p>  
+    {% endif %}
+{% endblock content %}
+
+{% block footer %}
+
+<p>&copy;2022</p>
+{% endblock footer %}
